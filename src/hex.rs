@@ -6,7 +6,9 @@ use byte;
 
 /// convert from hexadecimal to byte values.
 ///
-/// parses a slice of hexadecimal bytes, writing output to the supplied buffer.
+/// parses a slice of hexadecimal bytes (UTF-8), writing output to the supplied buffer.
+/// this function accepts any combination of upper and lower case hexadecimal, but
+/// does require that all bytes be valid hexadecimal characters.
 ///
 /// # panics
 ///
@@ -27,7 +29,8 @@ pub fn from(src: &[u8], dst: &mut [u8]) -> Result<(),ParseHexError> {
 /// convert from byte values to hexadecimal.
 ///
 /// process a slice of byte values, writing their corresponding hexadecimal 
-/// representation to the supplied buffer.
+/// representation to the supplied buffer.  the conversion operation cannot 
+/// fail, but this function will panic if supplied buffers are not correctly sized.
 ///
 /// # panics
 ///
@@ -49,7 +52,8 @@ pub fn into(src: &[u8], dst: &mut [u8]) {
 /// convert from byte values to uppercase hexadecimal.
 ///
 /// process a slice of byte values, writing their corresponding uppercase 
-/// hexadecimal representation to the supplied buffer.
+/// hexadecimal representation to the supplied buffer. the conversion operation cannot 
+/// fail, but this function will panic if supplied buffers are not correctly sized.
 ///
 /// # panics
 ///
