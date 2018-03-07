@@ -2,6 +2,6 @@
 name = "hex-core"
 version = "0.1.0"
 authors = ["Forrest Marshall <forrest@mimirblockchain.solutions>"]
-license = "MIT"
+license = "MIT/Apache-2.0"
 
 [dependencies]
