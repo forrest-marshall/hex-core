@@ -1,6 +1,5 @@
 //! hexadecimal parsing errors.
 //!
-use std::ops::Deref;
 use std::{fmt,error};
 
 
@@ -29,11 +28,9 @@ impl ParseHexError {
 }
 
 
-impl Deref for ParseHexError {
+impl AsRef<str> for ParseHexError {
 
-    type Target = str;
-
-    fn deref(&self) -> &'static Self::Target { self.as_str() }
+    fn as_ref(&self) -> &'static str { self.as_str() }
 }
 
 
