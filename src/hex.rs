@@ -39,7 +39,7 @@ pub fn from(src: &[u8], dst: &mut [u8]) -> Result<(),ParseHexError> {
 ///
 #[inline]
 pub fn into(src: &[u8], dst: &mut [u8]) {
-    assert_eq!(dst.len(), src.len() * 2,"hex buff must be 2x the size of byte buff");
+    assert_eq!(src.len() * 2,dst.len(),"hex buff must be 2x the size of byte buff");
     for (src_byte,dst_chunk) in src.iter().zip(dst.chunks_mut(2)) {
         debug_assert!(dst_chunk.len() == 2,"chunks should always be of length 2");
         let (a,b) = byte::into(*src_byte);
@@ -62,7 +62,7 @@ pub fn into(src: &[u8], dst: &mut [u8]) {
 ///
 #[inline]
 pub fn into_upper(src: &[u8], dst: &mut [u8]) {
-    assert_eq!(dst.len(), src.len() * 2,"hex buff must be 2x the size of byte buff");
+    assert_eq!(src.len() * 2,dst.len(),"hex buff must be 2x the size of byte buff");
     for (src_byte,dst_chunk) in src.iter().zip(dst.chunks_mut(2)) {
         debug_assert!(dst_chunk.len() == 2,"chunks should always be of length 2");
         let (a,b) = byte::into_upper(*src_byte);
